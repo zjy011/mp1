@@ -1,0 +1,46 @@
+@use "../abstracts" as *;
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: $font-display;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: $track-mid;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  letter-spacing: $track-wide;
+}
+
+h3 {
+  margin-bottom: space(1);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  letter-spacing: $track-mid;
+}
+
+h4 {
+  font-size: 1.125rem;
+  letter-spacing: $track-mid;
+}
+
+p {
+  margin: 0 0 space(2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+strong {
+  color: $gold-lt;
+  font-weight: 600;
+}

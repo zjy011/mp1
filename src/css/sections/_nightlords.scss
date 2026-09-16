@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+
+.nightlords {
+  // Requirement: fixed-position background image.
+  background:
+    linear-gradient(rgba($void, 0.86), rgba($void, 0.9)),
+    url("../assets/shots/nightlords.jpg") center / cover no-repeat;
+  background-attachment: fixed, fixed;
+  text-align: center;
+
+  &__inner {
+    @include container;
+    max-width: 860px;
+  }
+
+  &__lede {
+    color: $parchment;
+    font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  }
+
+  &__quote {
+    margin: space(4) 0 0;
+    padding-top: space(4);
+    border-top: 1px solid $hairline;
+    color: $gold-lt;
+    font-size: 1.0625rem;
+    font-style: italic;
+  }
+
+  // background-attachment: fixed is unreliable on touch devices; fall back.
+  @include respond-to("sm") {
+    background-attachment: scroll, scroll;
+    background-position: center, center 30%;
+  }
+}

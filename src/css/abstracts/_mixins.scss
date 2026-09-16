@@ -1,0 +1,88 @@
+@use "variables" as v;
+@use "functions" as f;
+
+/// Mobile-last media query: @include respond-to("sm") { ... }
+@mixin respond-to($name) {
+  @media (max-width: f.breakpoint($name)) {
+    @content;
+  }
+}
+
+/// Shared page gutter. Applied to every stripe's inner wrapper.
+@mixin container {
+  width: 100%;
+  max-width: v.$container-max;
+  margin: 0 auto;
+  padding: 0 v.$container-pad;
+
+  @include respond-to("sm") {
+    padding: 0 v.$container-pad-sm;
+  }
+}
+
+/// Vertical rhythm shared by every full-width stripe.
+@mixin stripe-padding {
+  padding: clamp(#{f.space(8)}, 8vw, #{f.space(16)}) 0;
+}
+
+/// Display type: uppercase Cinzel with the wide tracking the theme relies on.
+@mixin display-type($size: 1rem, $track: v.$track-wide) {
+  font-family: v.$font-display;
+  font-size: $size;
+  font-weight: 700;
+  letter-spacing: $track;
+  text-transform: uppercase;
+}
+
+/// Thin gold hairline used as a section divider and card edge.
+@mixin gold-rule($height: 1px) {
+  height: $height;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(v.$gold, 0.75) 50%,
+    transparent
+  );
+}
+
+/// One visible focus treatment for every interactive element.
+@mixin focus-ring($offset: 3px) {
+  &:focus-visible {
+    outline: 2px solid v.$gold-lt;
+    outline-offset: $offset;
+  }
+}
+
+/// Dark card surface used by cards, the carousel and the modal.
+@mixin panel($bg: rgba(v.$ash, 0.9)) {
+  background: $bg;
+  border: 1px solid v.$hairline;
+  border-radius: v.$radius;
+  box-shadow: v.$shadow-sm;
+}
+
+/// Light parchment area behind the low-resolution character portraits so their
+/// white JPEG background blends instead of showing as a white rectangle.
+@mixin parchment-wash {
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      #fdfbf6 0%,
+      v.$parchment 58%,
+      darken(v.$parchment, 12%) 100%
+    );
+}
+
+/// Screen-reader-only text.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

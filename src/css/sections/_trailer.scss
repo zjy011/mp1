@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+.trailer {
+  background:
+    radial-gradient(circle at 50% 120%, rgba($blood, 0.18), transparent 60%),
+    $void;
+  text-align: center;
+
+  &__frame {
+    width: min(900px, 90vw);
+    margin: 0 auto;
+    padding: space(1);
+    border: 1px solid $gold;
+    border-radius: $radius;
+    background: rgba($ash, 0.8);
+    box-shadow: $shadow-lg;
+  }
+
+  &__video {
+    width: 100%;
+    border-radius: $radius;
+    background: #000;
+  }
+
+  &__fallback {
+    padding: space(3);
+    color: $muted;
+    font-size: 0.9375rem;
+  }
+
+  &__caption {
+    margin-top: space(3);
+    color: $muted;
+    font-size: 0.875rem;
+  }
+}

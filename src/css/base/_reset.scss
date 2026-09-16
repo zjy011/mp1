@@ -1,0 +1,85 @@
+@use "../abstracts" as *;
+
+// Custom properties: the two navbar heights are needed by navbar.js and
+// smoothScroll.js, so they are published from the SCSS tokens instead of being
+// hard-coded a second time in JavaScript.
+:root {
+  --nav-height: #{$nav-height};
+  --nav-height-shrunk: #{$nav-height-shrunk};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  // The sticky navbar would otherwise cover anchored headings.
+  scroll-padding-top: $nav-height-shrunk;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: $void;
+  color: $parchment;
+  font-family: $font-body;
+  font-size: 1rem;
+  line-height: $leading-body;
+  // The hamburger menu and the modal both set this class while open.
+  &.is-locked {
+    overflow: hidden;
+  }
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+hr {
+  @include gold-rule;
+  margin: 0;
+}
+
+:target {
+  scroll-margin-top: $nav-height-shrunk;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

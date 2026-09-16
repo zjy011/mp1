@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+.nightfarers-section {
+  background:
+    radial-gradient(circle at 50% 0%, rgba($gold, 0.07), transparent 55%),
+    $void;
+
+  &__hint {
+    @include display-type(0.6875rem, $track-mid);
+    display: block;
+    margin-top: space(3);
+    color: $gold;
+  }
+}

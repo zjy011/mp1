@@ -1,0 +1,205 @@
+@use "../abstracts" as *;
+
+// Character grid --------------------------------------------------------------
+.nightfarers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: space(3);
+
+  @include respond-to("xs") {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: space(2);
+  }
+
+  // Staggered entrance for the grid children.
+  @for $i from 1 through 10 {
+    > .reveal:nth-child(#{$i}).is-visible {
+      animation-delay: $i * 55ms;
+    }
+  }
+}
+
+.nightfarer {
+  @include panel;
+  @include focus-ring(4px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  transition:
+    transform $speed $ease,
+    border-color $speed $ease,
+    box-shadow $speed $ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px);
+    border-color: $gold;
+    box-shadow: $shadow-lg;
+
+    .nightfarer__portrait img {
+      transform: scale(1.04);
+    }
+
+    .nightfarer__name {
+      color: $gold-lt;
+    }
+  }
+
+  // The portraits are ~213x236 JPEGs on a white background, so they sit on a
+  // parchment wash that hides their edges instead of on the dark page.
+  &__portrait {
+    @include parchment-wash;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    // Fixed ratio keeps every card's info strip on the same line.
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      max-width: 190px; // never upscale the low-resolution source
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      mix-blend-mode: multiply;
+      transition: transform $speed-slow $ease;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 40%;
+      background: linear-gradient(transparent, rgba($ash, 0.55));
+      pointer-events: none;
+    }
+  }
+
+  &__badge {
+    @include display-type(0.625rem, $track-mid);
+    position: absolute;
+    top: space(1);
+    right: space(1);
+    z-index: $z-base;
+    padding: 2px space(1);
+    background: $blood;
+    color: $parchment;
+    border-radius: $radius;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: space(1);
+    padding: space(2);
+    border-top: 1px solid $hairline;
+  }
+
+  &__name {
+    @include display-type(1rem, $track-mid);
+    color: $parchment;
+    transition: color $speed-fast $ease;
+  }
+
+  &__role {
+    color: $muted;
+    font-size: 0.9375rem;
+    font-style: italic;
+  }
+
+  &__cue {
+    @include display-type(0.625rem, $track-mid);
+    margin-top: space(1);
+    color: $gold;
+    opacity: 0.85;
+  }
+}
+
+// Generic icon-led column used by #cycle and #dlc ------------------------------
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space(2);
+  text-align: center;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: space(9);
+    height: space(9);
+    font-size: 1.75rem;
+    color: $gold;
+    border: 1px solid $hairline;
+    border-radius: 50%;
+    transition:
+      transform $speed $ease,
+      border-color $speed $ease;
+  }
+
+  &:hover &__icon {
+    transform: translateY(-4px) rotate(-6deg);
+    border-color: $gold;
+  }
+
+  &__step {
+    @include display-type(0.6875rem, $track-wide);
+    color: $gold;
+  }
+
+  &__title {
+    margin-bottom: space(1);
+  }
+
+  &--inline {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+
+    .feature__icon {
+      flex: 0 0 auto;
+      width: space(7);
+      height: space(7);
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// Number/label pairs used in #nightlords ---------------------------------------
+.figure-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: space(6);
+  margin-top: space(6);
+
+  @include respond-to("xs") {
+    gap: space(4);
+  }
+}
+
+.figure {
+  min-width: 140px;
+  text-align: center;
+
+  &__value {
+    @include display-type(clamp(2.5rem, 5vw, 3.5rem), $track-mid);
+    display: block;
+    color: $gold;
+    line-height: 1;
+  }
+
+  &__label {
+    @include display-type(0.6875rem, $track-wide);
+    display: block;
+    margin-top: space(1);
+    color: $parchment;
+  }
+}

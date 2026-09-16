@@ -1,0 +1,85 @@
+@use "../abstracts" as *;
+
+.footer {
+  padding: space(10) 0 space(4);
+  background: $void;
+  border-top: 1px solid $hairline;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: space(6);
+
+    @include respond-to("sm") {
+      grid-template-columns: 1fr;
+      gap: space(4);
+    }
+  }
+
+  &__title {
+    @include display-type(0.8125rem, $track-wide);
+    margin-bottom: space(3);
+    color: $gold;
+  }
+
+  &__text {
+    color: $muted;
+    font-size: 0.9375rem;
+  }
+
+  &__links li {
+    margin-bottom: space(1);
+  }
+
+  &__link {
+    @include focus-ring;
+    position: relative;
+    color: $muted;
+    font-size: 0.9375rem;
+    transition: color $speed-fast $ease;
+
+    &:hover {
+      color: $gold-lt;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: space(3);
+    margin: space(6) 0 space(4);
+  }
+
+  &__social-link {
+    @include focus-ring;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: space(6);
+    height: space(6);
+    font-size: 1.125rem;
+    color: $muted;
+    border: 1px solid $hairline;
+    border-radius: 50%;
+    transition:
+      color $speed $ease,
+      border-color $speed $ease,
+      transform $speed $ease;
+
+    &:hover {
+      color: $gold-lt;
+      border-color: $gold;
+      transform: translateY(-4px);
+    }
+  }
+
+  &__fineprint {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: space(3);
+    border-top: 1px solid rgba($gold, 0.14);
+    color: $muted;
+    font-size: 0.8125rem;
+    text-align: center;
+  }
+}

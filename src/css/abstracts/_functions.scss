@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "variables" as v;
+
+/// Spacing helper: keeps every margin/padding on an 8px rhythm.
+/// space(3) -> 24px
+@function space($steps) {
+  @return $steps * v.$space-unit;
+}
+
+/// Safe breakpoint lookup so a typo fails loudly at compile time.
+@function breakpoint($name) {
+  @if not map.has-key(v.$breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`. Expected one of #{map.keys(v.$breakpoints)}.";
+  }
+  @return map.get(v.$breakpoints, $name);
+}

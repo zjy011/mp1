@@ -1,0 +1,249 @@
+@use "../abstracts" as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-nav;
+  width: 100%;
+  background: rgba($void, 0.72);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(10px);
+  transition:
+    background $speed $ease,
+    border-color $speed $ease,
+    box-shadow $speed $ease;
+
+  &__inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: space(3);
+    height: var(--nav-height);
+    transition: height $speed $ease;
+  }
+
+  &__logo {
+    @include display-type($nav-logo, $track-mid);
+    @include focus-ring;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.15em;
+    color: $parchment;
+    white-space: nowrap;
+    transition:
+      font-size $speed $ease,
+      color $speed-fast $ease;
+
+    &:hover {
+      color: $gold-lt;
+    }
+
+    &-accent {
+      color: $gold;
+    }
+  }
+
+  // Mirrors the active menu item while the menu is collapsed behind the
+  // hamburger, so the reading position stays visible at narrow widths.
+  &__current {
+    @include display-type(0.75rem, $track-nav);
+    display: none;
+    min-width: 0;
+    overflow: hidden;
+    color: $gold-lt;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+  }
+
+  &__link {
+    @include display-type($nav-link, $track-nav);
+    @include focus-ring;
+    position: relative;
+    display: block;
+    padding: space(1) 0;
+    font-weight: 600;
+    font-size: $nav-link;
+    color: $muted;
+    white-space: nowrap;
+    transition:
+      color $speed-fast $ease,
+      font-size $speed $ease;
+
+    // Position indicator underline.
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, $gold, transparent);
+      transform: translateX(-50%);
+      transition: width $speed $ease;
+    }
+
+    &:hover {
+      color: $parchment;
+    }
+
+    &.is-active {
+      color: $gold-lt;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  // Shrunk state, toggled from navbar.js past ~80px of scroll.
+  &.is-shrunk {
+    background: rgba($void, 0.95);
+    border-bottom-color: $hairline;
+    box-shadow: $shadow-sm;
+
+    .navbar__inner {
+      height: var(--nav-height-shrunk);
+    }
+
+    .navbar__logo {
+      font-size: $nav-logo-shrunk;
+    }
+
+    .navbar__link {
+      font-size: $nav-link-shrunk;
+    }
+  }
+
+  // Hamburger -----------------------------------------------------------------
+  &__toggle {
+    @include focus-ring;
+    display: none;
+    width: space(6);
+    height: space(6);
+    color: $gold;
+    font-size: 1.25rem;
+    border: 1px solid $hairline;
+    border-radius: $radius;
+    transition:
+      color $speed-fast $ease,
+      border-color $speed-fast $ease;
+
+    &:hover {
+      color: $gold-lt;
+      border-color: $gold;
+    }
+
+    .navbar__icon--close {
+      display: none;
+    }
+
+    &.is-open {
+      .navbar__icon--open {
+        display: none;
+      }
+
+      .navbar__icon--close {
+        display: inline-block;
+      }
+    }
+  }
+
+  // Between 1200px and the hamburger breakpoint the seven labels need tighter
+  // type to stay on one line.
+  @include respond-to("lg") {
+    &__menu {
+      gap: space(2);
+    }
+
+    &__link,
+    &.is-shrunk .navbar__link {
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  @include respond-to("md") {
+    &__menu {
+      gap: space(1);
+    }
+
+    &__logo,
+    &.is-shrunk .navbar__logo {
+      font-size: 1.125rem;
+    }
+
+    &__link,
+    &.is-shrunk .navbar__link {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  @include respond-to("sm") {
+    &__toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__current {
+      display: block;
+    }
+
+    &__menu {
+      position: fixed;
+      top: $nav-height-shrunk;
+      right: 0;
+      left: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      height: calc(100vh - #{$nav-height-shrunk});
+      padding: space(2) $container-pad-sm space(6);
+      background: $void;
+      border-top: 1px solid $hairline;
+      transform: translateX(100%);
+      visibility: hidden;
+      transition:
+        transform $speed $ease,
+        visibility $speed $ease;
+
+      &.is-open {
+        transform: translateX(0);
+        visibility: visible;
+      }
+    }
+
+    &__link {
+      padding: space(2) 0;
+      font-size: 1.0625rem;
+      border-bottom: 1px solid rgba($gold, 0.14);
+      text-align: left;
+
+      &::after {
+        left: 0;
+        transform: none;
+      }
+
+      &.is-active::after {
+        width: space(5);
+      }
+    }
+
+    &__inner {
+      height: $nav-height-shrunk;
+    }
+
+    &.is-shrunk .navbar__link {
+      font-size: 1.0625rem;
+    }
+  }
+}

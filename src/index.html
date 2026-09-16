@@ -1,13 +1,883 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A page created by Jieyi Zhao for the intro of ELDEN RING NIGHTREIGN."
+    />
+    <title>ELDEN RING NIGHTREIGN &mdash; Three Days. One Nightlord.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#home">Skip to content</a>
+
+    <!-- ===================== Sticky navigation ===================== -->
+    <nav class="navbar" id="navbar" aria-label="Primary">
+      <div class="navbar__inner">
+        <a class="navbar__logo" href="#home">
+          Night<span class="navbar__logo-accent">reign</span>
+        </a>
+
+        <span class="navbar__current" id="nav-current" aria-hidden="true"></span>
+
+        <button
+          class="navbar__toggle"
+          id="nav-toggle"
+          type="button"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          aria-label="Open navigation menu"
+        >
+          <i class="fa-solid fa-bars navbar__icon--open" aria-hidden="true"></i>
+          <i class="fa-solid fa-xmark navbar__icon--close" aria-hidden="true"></i>
+        </button>
+
+        <ul class="navbar__menu" id="nav-menu">
+          <li><a class="navbar__link is-active" href="#home">Home</a></li>
+          <li><a class="navbar__link" href="#cycle">The Cycle</a></li>
+          <li><a class="navbar__link" href="#nightfarers">Nightfarers</a></li>
+          <li><a class="navbar__link" href="#limveld">Limveld</a></li>
+          <li><a class="navbar__link" href="#nightlords">Nightlords</a></li>
+          <li><a class="navbar__link" href="#trailer">Trailer</a></li>
+          <li><a class="navbar__link" href="#dlc">Forsaken Hollows</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ===================== Hero ===================== -->
+    <header class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            FromSoftware &middot; Bandai Namco
+          </p>
+          <h1 class="hero__title">Elden Ring <span>Nightreign</span></h1>
+          <p class="hero__tagline">
+            Three days. Three Nightfarers. One Nightlord.
+          </p>
+          <p class="hero__text">
+            A standalone co-op survival action spin-off. Trios of Nightfarers
+            drop into the shifting land of Limveld, outrun the closing Night's
+            Tide for three in-game days, and face one of eight Nightlords on the
+            final night.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#trailer">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+              Watch the trailer
+            </a>
+            <a class="btn btn--ghost" href="#nightfarers">
+              Meet the Nightfarers
+            </a>
+          </div>
+        </div>
+
+        <figure class="hero__poster">
+          <div class="hero__poster-frame">
+            <img
+              src="assets/cover.avif"
+              alt="ELDEN RING NIGHTREIGN key art: a lone Nightfarer beneath a storm-lit sky"
+              width="1024"
+              height="1024"
+            />
+          </div>
+          <figcaption class="hero__poster-caption">
+            Released May 30, 2025 &mdash; PS4, PS5, Xbox One, Xbox Series X|S, PC
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="hero__scroll" href="#cycle" aria-label="Scroll to The Cycle">
+        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </header>
+
+    <main>
+      <!-- ===================== The Cycle (multi-column, light stripe) ===================== -->
+      <section class="section section--light cycle" id="cycle">
+        <div class="container">
+          <div class="section__header reveal">
+            <p class="section__eyebrow">The Expedition Loop</p>
+            <h2>The Three-Day Cycle</h2>
+            <hr class="section__rule" />
+            <p class="section__lede">
+              Every expedition is a compressed run: gather strength by daylight,
+              survive what the night sends, and finally, stand against the Nightlord.
+            </p>
+          </div>
+
+          <div class="cycle__grid">
+            <article class="cycle__column feature reveal">
+              <span class="feature__icon">
+                <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              </span>
+              <p class="feature__step">Day</p>
+              <h3 class="feature__title">Explore and Level Up</h3>
+              <p>
+                Land in Limveld and run it down: clear camps, claim churches and
+                spend runes. Everything you find is temporary, so the only thing
+                that carries forward is how fast you grow.
+              </p>
+            </article>
+
+            <article class="cycle__column feature reveal">
+              <span class="feature__icon">
+                <i class="fa-solid fa-cloud-showers-heavy" aria-hidden="true"></i>
+              </span>
+              <p class="feature__step">Night</p>
+              <h3 class="feature__title">Face the Challenge</h3>
+              <p>
+                The ring of the Night's Tide contracts and squeezes the map.
+                Whatever ground is left belongs to the night boss waiting at the
+                centre of it.
+              </p>
+            </article>
+
+            <article class="cycle__column feature reveal">
+              <span class="feature__icon">
+                <i class="fa-solid fa-skull" aria-hidden="true"></i>
+              </span>
+              <p class="feature__step">Final Fight</p>
+              <h3 class="feature__title">Defeat the Nightlord</h3>
+              <p>
+                On the third night, the expedition ends one way or the other:
+                three Nightfarers against a single Nightlord, with no ground left
+                to retreat into.
+              </p>
+            </article>
+          </div>
+
+          <p class="cycle__note">
+            Runs last roughly forty minutes. Fall in battle and an ally can raise
+            you &mdash; fall together means that the expedition is over.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== Nightfarers (modal triggers) ===================== -->
+      <section
+        class="section section--void nightfarers-section"
+        id="nightfarers"
+      >
+        <div class="container">
+          <div class="section__header reveal">
+            <p class="section__eyebrow">Ten Playable Characters</p>
+            <h2 class="section__title">The Nightfarers</h2>
+            <hr class="section__rule" />
+            <p class="section__lede">
+              Each expedition is fought by a trio. Every Nightfarer brings a
+              different answer.
+            </p>
+            <span class="nightfarers-section__hint">
+              <i class="fa-solid fa-hand-pointer" aria-hidden="true"></i>
+              Select a Nightfarer for details
+            </span>
+          </div>
+
+          <ul class="nightfarers">
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="wylder"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/wylder.jpeg"
+                    alt="Portrait of Wylder"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Wylder</span>
+                  <span class="nightfarer__role">Balanced melee</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="guardian"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/guardian.jpeg"
+                    alt="Portrait of Guardian"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Guardian</span>
+                  <span class="nightfarer__role">Tank</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="ironeye"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/ironeye.jpeg"
+                    alt="Portrait of Ironeye"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Ironeye</span>
+                  <span class="nightfarer__role">Ranged</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="duchess"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/duchess.jpeg"
+                    alt="Portrait of Duchess"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Duchess</span>
+                  <span class="nightfarer__role">Agile</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="raider"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/raider.jpeg"
+                    alt="Portrait of Raider"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Raider</span>
+                  <span class="nightfarer__role">Bruiser</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="recluse"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/recluse.jpeg"
+                    alt="Portrait of Recluse"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Recluse</span>
+                  <span class="nightfarer__role">Sorcerer</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="executor"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/executor.jpeg"
+                    alt="Portrait of Executor"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Executor</span>
+                  <span class="nightfarer__role">Duelist</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="revenant"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <img
+                    src="assets/heros/revenant.jpeg"
+                    alt="Portrait of Revenant"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Revenant</span>
+                  <span class="nightfarer__role">Summoner</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="scholar"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <!-- <span class="nightfarer__badge">DLC</span> -->
+                  <img
+                    src="assets/heros/scholar.jpeg"
+                    alt="Portrait of Scholar"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Scholar</span>
+                  <span class="nightfarer__role">Support</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nightfarer reveal"
+                type="button"
+                data-character="undertaker"
+                aria-haspopup="dialog"
+              >
+                <span class="nightfarer__portrait">
+                  <!-- <span class="nightfarer__badge">DLC</span> -->
+                  <img
+                    src="assets/heros/undertaker.jpeg"
+                    alt="Portrait of Undertaker"
+                    width="213"
+                    height="236"
+                    loading="lazy"
+                  />
+                </span>
+                <span class="nightfarer__body">
+                  <span class="nightfarer__name">Undertaker</span>
+                  <span class="nightfarer__role">Strength / Faith</span>
+                  <span class="nightfarer__cue">View details</span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== Limveld: map + carousel ===================== -->
+      <section class="section section--ash limveld" id="limveld">
+        <div class="container">
+          <div class="section__header reveal">
+            <p class="section__eyebrow">The Shifting Land</p>
+            <h2 class="section__title">Limveld</h2>
+            <hr class="section__rule" />
+            <p class="section__lede">
+              The same map, never the same run. Landmarks, spawns and terrain are
+              rearranged for every expedition.
+            </p>
+          </div>
+
+          <div class="limveld__split">
+            <figure class="limveld__map reveal">
+              <img
+                src="assets/map.avif"
+                alt="In-game map of Limveld showing its landmarks and terrain"
+                width="997"
+                height="1002"
+              />
+              <span class="limveld__marker limveld__marker--church" tabindex="0">
+                <span class="limveld__tooltip">Church &middot; Flask upgrade</span>
+              </span>
+              <span class="limveld__marker limveld__marker--fort" tabindex="0">
+                <span class="limveld__tooltip">Fort &middot; Guarded loot</span>
+              </span>
+              <span class="limveld__marker limveld__marker--camp" tabindex="0">
+                <span class="limveld__tooltip">Camp &middot; Early runes</span>
+              </span>
+            </figure>
+
+            <div class="limveld__copy reveal">
+              <h3>Read the land before it moves</h3>
+              <p>
+                Limveld is rebuilt between expeditions, so route planning matters
+                more than memorising a map. A Shifting Earth event can remake a
+                whole region &mdash; and with it, everything worth running toward.
+              </p>
+              <ul class="limveld__list">
+                <li>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  Landmarks are reshuffled each run, so no two routes repeat.
+                </li>
+                <li>
+                  <i class="fa-solid fa-bell" aria-hidden="true"></i>
+                  Special events can come out of nowhere, so be prepared.
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-notch" aria-hidden="true"></i>
+                  The Night's Tide closes in, forcing the trio toward one point.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Carousel -->
+          <div class="limveld__gallery reveal">
+            <h3 class="limveld__gallery-title">Scenes From the Field</h3>
+
+            <div
+              class="carousel"
+              id="carousel"
+              role="region"
+              aria-label="Expedition gallery"
+              tabindex="0"
+            >
+              <div class="carousel__viewport">
+                <ul class="carousel__track is-at-0" id="carousel-track">
+                  <li class="carousel__slide">
+                    <img
+                      src="assets/shots/slide-inferno.jpg"
+                      alt="A Nightfarer fighting a fire-wreathed enemy"
+                      width="1920"
+                      height="1080"
+                    />
+                    <div class="carousel__caption">
+                      <h3>Trial by Fire</h3>
+                      <p>
+                        Flame sweeps the field as the trio commits to a fight it
+                        cannot walk away from.
+                      </p>
+                    </div>
+                  </li>
+                  <!-- <li class="carousel__slide">
+                    <img
+                      src="assets/shots/slide-rot.jpg"
+                      alt="A battle staged in a blighted, rot-covered landscape"
+                      width="1920"
+                      height="1080"
+                      loading="lazy"
+                    />
+                    <div class="carousel__caption">
+                      <h3>Blight and Rot</h3>
+                      <p>
+                        Some ground punishes you as surely as the thing standing
+                        on it.
+                      </p>
+                    </div>
+                  </li> -->
+                  <!-- <li class="carousel__slide">
+                    <img
+                      src="assets/shots/slide-magma.jpg"
+                      alt="Molten terrain reshaping a region of Limveld"
+                      width="1920"
+                      height="1080"
+                      loading="lazy"
+                    />
+                    <div class="carousel__caption">
+                      <h3>Scorched Earth</h3>
+                      <p>
+                        A Shifting Earth event can turn a familiar region into
+                        molten ground before the first night falls.
+                      </p>
+                    </div>
+                  </li> -->
+                  <li class="carousel__slide">
+                    <img
+                      src="assets/shots/slide-frost.jpg"
+                      alt="A frozen battlefield under a pale sky"
+                      width="1920"
+                      height="1080"
+                      loading="lazy"
+                    />
+                    <div class="carousel__caption">
+                      <h3>Killing Frost</h3>
+                      <p>
+                        Cold regions slow an expedition to a crawl &mdash; and the
+                        Night's Tide does not wait.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="carousel__slide">
+                    <img
+                      src="assets/shots/slide-blaze.jpg"
+                      alt="A Nightfarer confronting a towering foe at night"
+                      width="1920"
+                      height="1080"
+                      loading="lazy"
+                    />
+                    <div class="carousel__caption">
+                      <h3>Special Abilities</h3>
+                      <p>
+                        Take full advantage of your skills to speed up the exploration, unless you want to risk the Night's Tide.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                class="carousel__arrow carousel__arrow--prev"
+                id="carousel-prev"
+                type="button"
+                aria-label="Previous slide"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                class="carousel__arrow carousel__arrow--next"
+                id="carousel-next"
+                type="button"
+                aria-label="Next slide"
+              >
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              </button>
+
+              <div
+                class="carousel__dots"
+                id="carousel-dots"
+                role="group"
+                aria-label="Choose a slide"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Nightlords (fixed background) ===================== -->
+      <section class="section nightlords" id="nightlords">
+        <div class="nightlords__inner">
+          <div class="section__header reveal">
+            <p class="section__eyebrow">The Third Night</p>
+            <h2 class="section__title">The Nightlords</h2>
+            <hr class="section__rule" />
+          </div>
+
+          <p class="nightlords__lede reveal">
+            Eight Nightlords preside over the night-tide, and an expedition only
+            ever meets one of them. Two days of preparation are measured against a
+            single fight: whatever the trio built in Limveld is all it will ever
+            bring to the third night.
+          </p>
+
+          <div class="figure-row reveal">
+            <div class="figure">
+              <span class="figure__value">8</span>
+              <span class="figure__label">Nightlords</span>
+            </div>
+            <div class="figure">
+              <span class="figure__value">3</span>
+              <span class="figure__label">In-game days</span>
+            </div>
+            <div class="figure">
+              <span class="figure__value">3</span>
+              <span class="figure__label">Nightfarers per run</span>
+            </div>
+          </div>
+
+          <p class="nightlords__quote reveal">
+            Survive the tide, or become part of it.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== Trailer (HTML5 video) ===================== -->
+      <section class="section trailer" id="trailer">
+        <div class="container">
+          <div class="section__header reveal">
+            <p class="section__eyebrow">Watch</p>
+            <h2 class="section__title">Official Trailer</h2>
+            <hr class="section__rule" />
+          </div>
+
+          <div class="trailer__frame reveal">
+            <video
+              class="trailer__video"
+              src="assets/trailer.mp4#t=0.5"
+              controls
+              preload="metadata"
+              playsinline
+            >
+              <p class="trailer__fallback">
+                Your browser does not support the HTML5 video element. You can
+                <a href="assets/trailer.mp4">download the trailer</a> instead.
+              </p>
+            </video>
+          </div>
+
+          <p class="trailer__caption">
+            ELDEN RING NIGHTREIGN &mdash; trailer footage &copy; FromSoftware /
+            Bandai Namco Entertainment.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== Forsaken Hollows DLC ===================== -->
+      <section class="section section--light dlc" id="dlc">
+        <div class="container">
+          <div class="section__header reveal">
+            <p class="section__eyebrow">Expansion</p>
+            <h2>Forsaken Hollows</h2>
+            <hr class="section__rule" />
+            <p class="section__lede">
+              The first expansion launched December 4, 2025, widening both the
+              roster and the land itself.
+            </p>
+          </div>
+
+          <div class="dlc__split">
+            <figure class="dlc__art reveal">
+              <img
+                src="assets/dlc.webp"
+                alt="Forsaken Hollows key art showing all ten Nightfarers"
+                width="1080"
+                height="1166"
+              />
+              <figcaption class="dlc__caption">
+                All ten Nightfarers, including the two added by the expansion
+              </figcaption>
+            </figure>
+
+            <div class="dlc__copy">
+              <p class="dlc__tag">Released December 4, 2025</p>
+              <h3>What the expansion adds</h3>
+              <p>
+                Forsaken Hollows extends the same three-day loop rather than
+                replacing it: new hands to play it with, new things waiting at the
+                end of it, and new ground for it to happen on.
+              </p>
+
+              <div class="dlc__list">
+                <article class="feature feature--inline reveal">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h3>Two new Nightfarers</h3>
+                    <p>
+                      The Scholar and the Undertaker join the roster, bringing
+                      support and heavy strength-faith play to the trio.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="feature feature--inline reveal">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-dragon" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h3>Two new bosses</h3>
+                    <p>
+                      Two further encounters to end an expedition on, for teams
+                      that have already learned the base game's nights.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="feature feature--inline reveal">
+                  <span class="feature__icon">
+                    <i class="fa-solid fa-mountain" aria-hidden="true"></i>
+                  </span>
+                  <div>
+                    <h3>The Great Hollow</h3>
+                    <p>
+                      A new Shifting Earth event that reshapes Limveld around a
+                      vast hollow, changing how a run is routed.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== Footer ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h4 class="footer__title">About This Page</h4>
+            <p class="footer__text">
+              A single-page fan tribute to ELDEN RING NIGHTREIGN, built by hand
+              with HTML5, SCSS and vanilla JavaScript &mdash; no frameworks, no
+              component libraries.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer__title">Quick Links</h4>
+            <ul class="footer__links">
+              <li><a class="footer__link" href="#cycle">The Cycle</a></li>
+              <li><a class="footer__link" href="#nightfarers">Nightfarers</a></li>
+              <li><a class="footer__link" href="#limveld">Limveld</a></li>
+              <li><a class="footer__link" href="#trailer">Trailer</a></li>
+              <li><a class="footer__link" href="#dlc">Forsaken Hollows</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="footer__social">
+          <li>
+            <a
+              class="footer__social-link"
+              href="https://x.com/ELDENRING"
+              aria-label="ELDEN RING on X"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              class="footer__social-link"
+              href="https://www.youtube.com/@BandaiNamcoAmerica"
+              aria-label="Bandai Namco on YouTube"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              class="footer__social-link"
+              href="https://discord.com/game/elden-ring-nightreign-1377783621775130694"
+              aria-label="Community on Discord"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i class="fa-brands fa-discord" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              class="footer__social-link"
+              href="https://store.steampowered.com/app/2622380/_/"
+              aria-label="ELDEN RING NIGHTREIGN on Steam"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i class="fa-brands fa-steam" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+
+        <p class="footer__fineprint">
+          ELDEN RING NIGHTREIGN is developed by FromSoftware, Inc. and published
+          by Bandai Namco Entertainment. All game art, footage and trademarks
+          belong to their respective owners. Student fan project for UIUC CS409
+          MP1. Not affiliated with FromSoftware or Bandai Namco Entertainment.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===================== Character modal ===================== -->
+    <div class="modal" id="character-modal" hidden>
+      <div class="modal__backdrop" data-modal-close></div>
+
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-name"
+        tabindex="-1"
+      >
+        <button
+          class="modal__close"
+          type="button"
+          data-modal-close
+          aria-label="Close dialog"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <div class="modal__media">
+          <img id="modal-image" src="assets/heros/wylder.jpeg" alt="" />
+        </div>
+
+        <div class="modal__content">
+          <p class="modal__role" id="modal-role"></p>
+          <h3 class="modal__name" id="modal-name"></h3>
+          <p class="modal__blurb" id="modal-blurb"></p>
+          <ul class="modal__meta">
+            <li>
+              <dfn>Archetype</dfn>
+              <b id="modal-archetype"></b>
+            </li>
+            <li>
+              <dfn>Availability</dfn>
+              <b id="modal-availability"></b>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -24,12 +24,19 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|jpeg|gif|webp|avif|mp4)$/i,
         type: "asset",
       },
       {
         test: /\.html$/i,
         loader: "html-loader",
+        // Leave .mp4 sources as plain relative paths: CopyPlugin already emits
+        // the trailer, so letting html-loader bundle it would ship it twice.
+        options: {
+          sources: {
+            urlFilter: (attribute, value) => !/\.mp4(?:[?#].*)?$/i.test(value),
+          },
+        },
       },
     ],
   },

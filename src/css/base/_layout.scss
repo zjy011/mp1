@@ -1,0 +1,110 @@
+@use "../abstracts" as *;
+
+.container {
+  @include container;
+}
+
+// Full-width horizontal stripes -----------------------------------------------
+.section {
+  @include stripe-padding;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &--void {
+    background-color: $void;
+  }
+
+  &--ash {
+    background-color: $ash;
+  }
+
+  // Light stripe: inverts the type colours for scroll rhythm.
+  // :where() keeps these inherited colours at class specificity so a component
+  // inside a light stripe can still set its own (see .dlc__tag).
+  &--light {
+    background-color: $parchment;
+    color: $ink;
+
+    :where(h2, h3, h4) {
+      color: $ink;
+    }
+
+    :where(p) {
+      color: $ink-soft;
+    }
+
+    .section__eyebrow {
+      color: darken($gold, 12%);
+    }
+
+    .section__lede {
+      color: $ink-soft;
+    }
+  }
+
+  &__header {
+    max-width: 760px;
+    margin: 0 auto space(7);
+    text-align: center;
+  }
+
+  &__eyebrow {
+    @include display-type(0.75rem, $track-wide);
+    margin-bottom: space(2);
+    color: $gold;
+  }
+
+  &__title {
+    color: $parchment;
+  }
+
+  &__rule {
+    @include gold-rule;
+    width: 160px;
+    margin: space(3) auto 0;
+  }
+
+  &__lede {
+    margin-top: space(3);
+    color: $muted;
+    font-size: 1.0625rem;
+  }
+}
+
+// Divider between stripes -----------------------------------------------------
+.stripe-rule {
+  @include gold-rule;
+  width: 100%;
+}
+
+// Scroll-reveal utility, driven by reveal.js ---------------------------------
+.reveal {
+  opacity: 0;
+
+  &.is-visible {
+    animation: fade-rise $speed-slow $ease both;
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.skip-link {
+  @include display-type(0.75rem, $track-mid);
+  position: absolute;
+  top: space(1);
+  left: space(1);
+  z-index: $z-modal + 1;
+  padding: space(1) space(2);
+  background: $gold;
+  color: $void;
+  border-radius: $radius;
+  transform: translateY(-200%);
+  transition: transform $speed-fast $ease;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}

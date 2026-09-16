@@ -1,0 +1,174 @@
+@use "../abstracts" as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: calc(#{$nav-height} + #{space(6)}) 0 space(12);
+  overflow: hidden;
+  isolation: isolate;
+
+  // Ambient background: official screenshot, darkened so the copy stays legible.
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      url("../assets/shots/hero-bg.jpg") center 30% / cover no-repeat;
+    transform: scale(1.04);
+  }
+
+  &__veil {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(180deg, rgba($void, 0.92) 0%, rgba($void, 0.55) 45%, $void 100%),
+      radial-gradient(circle at 25% 45%, rgba($void, 0.2), rgba($void, 0.85) 70%);
+  }
+
+  // Vertically centred with flexbox; stays centred at any viewport height.
+  &__inner {
+    @include container;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(#{space(4)}, 5vw, #{space(10)});
+  }
+
+  &__content {
+    flex: 1 1 520px;
+    max-width: 640px;
+    animation: fade-rise $speed-slow $ease both;
+  }
+
+  &__eyebrow {
+    @include display-type(0.75rem, $track-wide);
+    display: inline-flex;
+    align-items: center;
+    gap: space(1);
+    margin-bottom: space(3);
+    padding: space(1) space(2);
+    color: $gold;
+    border: 1px solid $hairline;
+    border-radius: $radius;
+  }
+
+  &__title {
+    color: $parchment;
+
+    span {
+      display: block;
+      color: $gold;
+      text-shadow: 0 0 40px rgba($gold, 0.28);
+    }
+  }
+
+  &__tagline {
+    @include display-type(clamp(0.875rem, 1.6vw, 1.125rem), $track-mid);
+    margin: space(3) 0 space(2);
+    color: $gold-lt;
+    font-weight: 600;
+  }
+
+  &__text {
+    max-width: 54ch;
+    color: $parchment;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: space(2);
+    margin-top: space(4);
+  }
+
+  // Poster card: cover.avif is square, so it is framed rather than stretched.
+  &__poster {
+    flex: 0 1 420px;
+    margin: 0;
+    animation: fade-in $speed-slow $ease 200ms both;
+  }
+
+  &__poster-frame {
+    padding: space(1);
+    border: 1px solid $gold;
+    border-radius: $radius;
+    background: rgba($void, 0.55);
+    box-shadow: $shadow-lg;
+    animation: float-poster 9s ease-in-out infinite;
+
+    img {
+      width: 100%;
+      border-radius: $radius;
+    }
+  }
+
+  &__poster-caption {
+    @include display-type(0.625rem, $track-wide);
+    margin-top: space(2);
+    color: $muted;
+    text-align: center;
+  }
+
+  &__scroll {
+    @include focus-ring;
+    position: absolute;
+    bottom: space(4);
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: space(6);
+    height: space(6);
+    margin-left: -#{space(3)};
+    color: $gold;
+    font-size: 1.25rem;
+    animation: chevron-bounce 2.4s ease-in-out infinite;
+  }
+
+  // Narrow the poster before the columns stack so the two buttons stay on one
+  // line at 1024px.
+  @include respond-to("md") {
+    &__poster {
+      flex: 0 1 340px;
+    }
+  }
+
+  @include respond-to("sm") {
+    min-height: 100vh;
+    padding: calc(#{$nav-height-shrunk} + #{space(6)}) 0 space(12);
+
+    &__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__content {
+      flex: 0 1 auto;
+    }
+
+    &__text {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &__actions {
+      justify-content: center;
+    }
+
+    &__poster {
+      flex: 0 1 auto;
+      width: min(320px, 72vw);
+    }
+  }
+
+  @include respond-to("xs") {
+    &__poster {
+      width: min(260px, 70vw);
+    }
+  }
+}

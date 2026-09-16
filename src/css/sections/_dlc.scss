@@ -1,0 +1,78 @@
+@use "../abstracts" as *;
+
+.dlc {
+  &__split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(#{space(4)}, 5vw, #{space(8)});
+
+    @include respond-to("md") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // dlc.webp is portrait: shown as a framed card at its own aspect ratio.
+  &__art {
+    max-width: 380px;
+    margin: 0 auto;
+    padding: space(1);
+    border: 1px solid rgba($gold, 0.7);
+    border-radius: $radius;
+    background: rgba(#fff, 0.5);
+    box-shadow: $shadow-lg;
+
+    img {
+      width: 100%;
+      border-radius: $radius;
+    }
+
+    @include respond-to("md") {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  }
+
+  &__caption {
+    @include display-type(0.625rem, $track-mid);
+    margin-top: space(2);
+    color: $ink-soft;
+    text-align: center;
+  }
+
+  &__tag {
+    @include display-type(0.6875rem, $track-wide);
+    display: inline-block;
+    margin-bottom: space(3);
+    padding: space(1) space(2);
+    background: $blood;
+    color: $parchment;
+    border-radius: $radius;
+  }
+
+  &__list {
+    display: grid;
+    gap: space(4);
+    margin-top: space(4);
+
+    @for $i from 1 through 3 {
+      > .reveal:nth-child(#{$i}).is-visible {
+        animation-delay: $i * 110ms;
+      }
+    }
+
+    .feature__icon {
+      border-color: rgba($gold, 0.5);
+      color: darken($gold, 8%);
+    }
+
+    h3 {
+      margin-bottom: space(1);
+    }
+
+    p {
+      color: $ink-soft;
+      font-size: 0.9375rem;
+    }
+  }
+}

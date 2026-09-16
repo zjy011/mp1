@@ -1,1 +1,25 @@
-/* Your SCSS here. */
+// -----------------------------------------------------------------------------
+//  ELDEN RING NIGHTREIGN fan page - CS409 MP1
+//  Partials are loaded here in cascade order: tokens, base, components, sections.
+// -----------------------------------------------------------------------------
+
+@use "abstracts/animations";
+
+@use "base/reset";
+@use "base/typography";
+@use "base/layout";
+
+@use "components/navbar";
+@use "components/buttons";
+@use "components/cards";
+@use "components/carousel";
+@use "components/modal";
+@use "components/footer";
+
+@use "sections/hero";
+@use "sections/cycle";
+@use "sections/nightfarers";
+@use "sections/limveld";
+@use "sections/nightlords";
+@use "sections/trailer";
+@use "sections/dlc";

@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+//  Design tokens: every colour, size and timing used on the page starts here.
+// -----------------------------------------------------------------------------
+
+// Palette ---------------------------------------------------------------------
+$void: #0a0908; // primary dark background
+$ash: #17130f; // secondary dark background (alternating stripes)
+$gold: #c8a94e; // primary accent
+$gold-lt: #e3c97a; // hover / glow
+$parchment: #e8e1d3; // light stripe background, body copy on dark
+$muted: #9a9285; // secondary text
+$blood: #8b2e2e; // sparing accent
+
+// Derived surfaces ------------------------------------------------------------
+$ink: #14100c; // text colour on light stripes
+$ink-soft: #554c3f; // secondary text on light stripes
+$hairline: rgba($gold, 0.28);
+$overlay-dark: rgba($void, 0.82);
+
+// Typography ------------------------------------------------------------------
+$font-display: "Cinzel", "Times New Roman", serif;
+$font-body: "EB Garamond", Georgia, "Times New Roman", serif;
+
+$track-wide: 0.18em; // heading letter-spacing
+$track-mid: 0.12em;
+$track-nav: 0.1em; // slightly tighter so seven labels fit one line
+$leading-body: 1.7;
+
+// Geometry --------------------------------------------------------------------
+$space-unit: 8px; // every spacing value is a multiple of this
+$container-max: 1200px;
+$container-pad: 24px;
+$container-pad-sm: 16px;
+$radius: 4px; // the single radius used across the page
+
+// Exactly two elevation levels ------------------------------------------------
+$shadow-sm: 0 2px 16px rgba(0, 0, 0, 0.45);
+$shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.65);
+
+// Navigation ------------------------------------------------------------------
+$nav-height: 88px;
+$nav-height-shrunk: 60px;
+$nav-logo: 1.5rem;
+$nav-logo-shrunk: 1.15rem;
+$nav-link: 0.9375rem;
+$nav-link-shrunk: 0.8125rem;
+
+// Motion ----------------------------------------------------------------------
+$ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+$speed-fast: 180ms;
+$speed: 320ms;
+$speed-slow: 620ms;
+
+// Layering --------------------------------------------------------------------
+$z-base: 1;
+$z-nav: 100;
+$z-modal: 200;
+
+// Breakpoints -----------------------------------------------------------------
+$breakpoints: (
+  "xl": 1440px,
+  "lg": 1200px,
+  "md": 1024px,
+  "sm": 768px,
+  "xs": 480px,
+);

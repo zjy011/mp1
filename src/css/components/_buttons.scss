@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+
+.btn {
+  @include display-type(0.8125rem, $track-wide);
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(1);
+  padding: space(2) space(4);
+  border: 1px solid $gold;
+  border-radius: $radius;
+  color: $gold-lt;
+  cursor: pointer;
+  transition:
+    background-color $speed-fast $ease,
+    color $speed-fast $ease,
+    border-color $speed-fast $ease,
+    transform $speed-fast $ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--primary {
+    background-color: $gold;
+    color: $void;
+
+    &:hover {
+      background-color: $gold-lt;
+      border-color: $gold-lt;
+    }
+  }
+
+  &--ghost {
+    border-color: rgba($parchment, 0.35);
+    color: $parchment;
+
+    &:hover {
+      border-color: $gold;
+      color: $gold-lt;
+    }
+  }
+
+  .fa-solid {
+    font-size: 0.875em;
+  }
+}

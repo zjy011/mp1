@@ -1,0 +1,138 @@
+@use "../abstracts" as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: space(3);
+  opacity: 0;
+  transition: opacity $speed $ease;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-open {
+    opacity: 1;
+
+    .modal__dialog {
+      animation: modal-in $speed $ease both;
+    }
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(4px);
+  }
+
+  &__dialog {
+    @include panel(rgba($ash, 0.98));
+    position: relative;
+    display: flex;
+    width: min(760px, 100%);
+    max-height: calc(100vh - #{space(6)});
+    overflow: auto;
+    box-shadow: $shadow-lg;
+
+    @include respond-to("sm") {
+      flex-direction: column;
+    }
+  }
+
+  &__media {
+    @include parchment-wash;
+    flex: 0 0 260px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      max-width: 190px;
+      mix-blend-mode: multiply;
+    }
+
+    @include respond-to("sm") {
+      flex: 0 0 auto;
+      padding-top: space(2);
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding: space(5) space(5) space(4);
+
+    @include respond-to("sm") {
+      padding: space(3);
+    }
+  }
+
+  &__role {
+    @include display-type(0.6875rem, $track-wide);
+    margin-bottom: space(1);
+    color: $gold;
+  }
+
+  &__name {
+    margin-bottom: space(2);
+    color: $parchment;
+  }
+
+  &__blurb {
+    color: $parchment;
+  }
+
+  &__meta {
+    margin-top: space(3);
+    padding-top: space(3);
+    border-top: 1px solid $hairline;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: space(2);
+      padding: space(1) 0;
+      font-size: 0.9375rem;
+      color: $muted;
+    }
+
+    dfn,
+    b {
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    b {
+      color: $parchment;
+      text-align: right;
+    }
+  }
+
+  &__close {
+    @include focus-ring;
+    position: absolute;
+    top: space(1);
+    right: space(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: space(5);
+    height: space(5);
+    color: $muted;
+    font-size: 1.125rem;
+    border-radius: 50%;
+    transition:
+      color $speed-fast $ease,
+      background-color $speed-fast $ease;
+
+    &:hover {
+      background: rgba($void, 0.6);
+      color: $gold-lt;
+    }
+  }
+}
